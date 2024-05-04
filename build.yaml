@@ -20,3 +20,4 @@
 include:
   - board: technikable
   - board: technikable@1.1
+  - board: preonic_rev3
