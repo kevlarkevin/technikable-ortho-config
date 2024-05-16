@@ -14,6 +14,11 @@
 #define NUM_L 2
 #define SYM_L 3
 
+// only turn off if soft off button pressed for 2 seconds
+&soft_off {
+    hold-time-ms = <2000>;
+};
+
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
 
