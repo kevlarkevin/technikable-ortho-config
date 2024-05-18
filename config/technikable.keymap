@@ -12,7 +12,7 @@
 #define BAS_L 0
 #define NAV_L 1
 #define NUM_L 2
-#define SYM_L 3
+#define ADJ_L 3
 
 // only turn off if soft off button pressed for 2 seconds
 &soft_off {
@@ -31,7 +31,7 @@
         compatible = "zmk,conditional-layers";
 	tri_layer {
 	    if-layers = <NAV_L NUM_L>;
-	    then-layer = <SYM_L>;
+	    then-layer = <ADJ_L>;
 	};
     };
 
