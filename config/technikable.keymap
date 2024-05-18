@@ -37,47 +37,69 @@
 
     keymap {
         compatible = "zmk,keymap";
-
-        base_layer {
+        default_layer {
+//  -------------------------------------------------------------------------------------------------------------------------
+// |  GRAV   |    1    |    2     |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    0    |   BSPC  |
+// |  TAB    |    Q    |    W     |    E    |    R    |    T    |    Y    |    U    |    I    |    O    |    P    |   BSLH  |
+// |  ESC    |    A    |    S     |    D    |    F    |    G    |    H    |    J    |    K    |    L    |    ;    |   '     |
+// | SHIFT   |    Z    |    X     |    C    |    V    |    B    |    N    |    M    |    ,    |    .    |    /    |  SFT_RT |
+// |         |         |   LCTL   |   LATL  |  LWIN   |BSPC/NUM | SPC/NAV |   RWIN  |   RALT  |   RCTL  |         |         |
             label = "Base";
             bindings = <
- &kp TAB    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BSLH
- &kp ESC    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp QUOT
- &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH      &mt RSHIFT RET
-                       &kp LCTRL  &kp LALT    &kp LWIN       &lt NAV_L BKSP &lt NUM_L SPACE  &kp RWIN       &kp RALT    &kp RCTRL
-            >;
+ &kp GRAVE  &kp N1     &kp N2     &kp N3    &kp N4    &kp N5         &kp N6          &kp N7    &kp N8      &kp N9     &kp N0    &kp BSPC
+ &kp TAB    &kp Q      &kp W      &kp E     &kp R     &kp T          &kp Y           &kp U     &kp I       &kp O      &kp P     &kp BSLH
+ &kp ESC    &kp A      &kp S      &kp D     &kp F     &kp G          &kp H           &kp J     &kp K       &kp L      &kp SEMI  &kp QUOT
+ &kp LSHFT  &kp Z      &kp X      &kp C     &kp V     &kp B          &kp N           &kp M     &kp COMMA   &kp DOT    &kp FSLH  &mt RSHIFT RET
+                       &kp LCTRL  &kp LALT  &kp LWIN  &lt NUM_L BKSP &lt NAV_L SPACE &kp RWIN  &kp RALT    &kp RCTRL
+                >;
         };
-
-        nav_layer {
-            label = "Nav";
-            bindings = <
-&bt BT_CLR &trans     &trans     &trans      &trans          &trans       &trans     &trans         &trans      &trans     &trans     &kp DEL
-&trans     &trans     &trans     &trans      &trans          &trans       &trans     &kp LARW       &kp DARW    &kp UARW   &kp RARW   &trans
-&trans     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2   &bt BT_SEL 3       &bt BT_SEL 4    &trans     &kp HOME       &kp PG_DN   &kp PG_UP  &kp END    &trans
-                      &trans     &trans      &trans          &trans       &trans    &trans  &trans         &trans
-            >;
-        };
-
         num_layer {
+//  -------------------------------------------------------------------------------------------------------------------------
+// |  GRAV   |    1    |    2     |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    0    |   BSPC  |
+// |  GRAV   |    1    |    2     |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    0    |   DEL   |
+// |         |    F1   |    F2    |    F3   |    F4   |    F5   |    F6   |    -    |    =    |    [    |    ]    |    \    |
+// |         |    F7   |    F8    |    F9   |    F10  |    F11  |    F12  |    #    |    \    |    -    |    =    |         |
+// |         |         |          |         |         |         |    *    |         |         |         |         |         |
             label = "Num";
             bindings = <
-&trans     &kp LBKT   &kp N7     &kp N8      &kp N9    &kp RBKT    &kp C_PREV    &trans         &trans       &trans       &trans     &trans
-&trans     &kp MINUS  &kp N4     &kp N5      &kp N6    &kp EQUAL   &kp C_NEXT    &trans         &trans       &trans       &trans     &trans
-&trans     &kp GRAVE  &kp N1     &kp N2      &kp N3    &kp BSLH    &trans        &trans         &trans       &trans       &trans     &trans
-                     &trans     &kp N0      &trans    &none         &none     &kp ESC        &kp DEL      &trans
-            >;
+ &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4   &kp N5      &kp N6   &kp N7     &kp N8        &kp N9            &kp N0             &kp BSPC
+ &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4   &kp N5      &kp N6   &kp N7     &kp N8        &kp N9            &kp N0             &kp DEL
+ &none      &kp F1  &kp F2  &kp F3  &kp F4   &kp F5      &kp F6   &kp MINUS  &kp EQUAL     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BSLH
+ &none      &kp F7  &kp F8  &kp F9  &kp F10  &kp F11     &kp F12  &kp HASH   &kp BSLH      &kp MINUS         &kp EQUAL          &none
+                    &none   &none   &none    &none       &none    &trans     &kp C_NEXT    &none
+                >;
         };
-
-        sym_layer {
-            label = "Sym";
+        nav_layer {
+//  -------------------------------------------------------------------------------------------------------------------------
+// |  TILDE  |    !    |    @     |    #    |    $    |    %    |    ^    |    &    |    *    |    (    |    )    |   BSPC  |
+// |  TILDE  |    !    |    @     |    #    |    $    |    %    |    ^    |    &    |    UP   |    (    |    )    |   DEL   |
+// |         |    F1   |    F2    |    F3   |    F4   |    F5   |    F6   |   LEFT  |   DOWN  |  RIGHT  |    ]    |    |    |
+// |         |    F7   |    F8    |    F9   |    F10  |    F11  |    F12  |  PG_DN  |  PG_UP  |   HOME  |  END    |         |
+// |         |         |          |         |         |         |    *    |         |         |         |         |         |
+            label = "Nav";
             bindings = <
-&trans     &kp LBRC   &kp LS(N7) &kp LS(N8)  &kp LS(N9)   &kp RBRC     &trans     &trans    &trans       &trans       &trans     &trans
-&trans     &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)   &kp PLUS     &trans     &trans    &trans       &trans       &trans     &trans
-&trans     &kp TILDE  &kp LS(N1) &kp LS(N2)  &kp LS(N3)   &kp LS(BSLH) &trans     &trans    &trans       &trans       &trans     &trans
-                      &trans     &kp LS(N0)      &trans          &trans       &trans    &trans  &trans         &trans
-            >;
+ &kp LS(GRAVE)  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)        &kp LS(N0)         &kp BSPC
+ &kp LS(GRAVE)  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(N7)  &kp UP      &kp LS(N9)        &kp LS(N0)         &kp DEL
+ &none          &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp LEFT    &kp DOWN    &kp RIGHT         &kp RIGHT_BRACKET  &kp PIPE
+ &none          &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12     &kp PG_DN   &kp PG_UP   &kp HOME          &kp END            &none
+ 			    &none       &none       &trans      &none       &none       &none       &none       &none
+                >;
         };
-
+        adj_layer {
+//  -------------------------------------------------------------------------------------------------------------------------
+// |  TILDE  |    !    |    @     |    #    |    $    |    %    |    ^    |    &    |    *    |    (    |    )    |   BSPC  |
+// |  TILDE  |    !    |    @     |    #    |    $    |    %    |    ^    |    &    |    *    |    (    |    )    |   DEL   |
+// |         |    F1   |    F2    |    F3   |    F4   |    F5   |    F6   |    -    |    +    |    [    |    ]    |    |    |
+// |         |    F7   |    F8    |    F9   |    F10  |   F11   |    F12  |         |  VOL-   |   VOL+  |         |         |
+// |         |         |          |         |         |   n/a   |   n/a   |         |         |         |         |         |
+            label = "Adj";
+            bindings = <
+ &kp LS(GRAVE)  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)        &kp LS(N0)         &kp BSPC
+ &kp LS(GRAVE)  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)        &kp LS(N0)         &kp DEL
+ &none          &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp MINUS   &kp PLUS    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp PIPE
+ &none          &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12     &none       &kp C_VOL_DOWN &kp C_VOL_UP   &none              &none
+ 			    &none       &none       &trans      &none       &none       &none       &kp none  &kp none
+                >;
     };
 };
 
